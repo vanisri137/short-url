@@ -1,17 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+const dotenv = require('dotenv')
+dotenv.config({ path: '../.env' })
+const express = require('express')
+const router = express.Router()
+const urlController = require('../controllers/url') 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// create short url
+router.post('/', urlController.createShortUrl)
+
+// find and redirect to original url
+router.get('/:shortUrlId', urlController.redirectToOriginalUrl)
+
+// delete single url
+router.delete('/', urlController.deleteUrl)
+
+router.get('/', (req, res) => {
+    res.json({message: 'Success'})
+})
+
+module.exports = router
