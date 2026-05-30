@@ -17,7 +17,7 @@
     { "src": "/(.*)", "dest": "/index.html" }
   ],
   "env": {
-    "REACT_APP_API_BASE_URL": "@api_base_url",
-    "REACT_APP_BASE_SHORT_URL": "@base_short_url"
-  }
+  "REACT_APP_API_BASE_URL": "https://short-url-eq56.onrender.com",
+  "REACT_APP_BASE_SHORT_URL": "https://short-url-eq56.onrender.com"
+}
 }
