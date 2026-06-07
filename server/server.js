@@ -53,7 +53,12 @@ app.get('/health', (req, res) => {
     environment: process.env.NODE_ENV || 'development',
   });
 });
-
+app.get('/', (req, res) => {
+  res.json({
+    success: true,
+    message: 'URL Shortener API is running 🚀'
+  });
+});
 // ── API Routes ──────────────────────────────────────────────────────
 app.use('/api/urls', urlRoutes);
 
