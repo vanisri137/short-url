@@ -14,7 +14,11 @@ const PORT = process.env.PORT || 5000;
 
 // ── Connect to MongoDB ──────────────────────────────────────────────
 connectDB();
-
+const allowedOrigins = [
+  'https://sniply-short-url13.vercel.app',
+  'https://sniply-short-url13-jnrc88xqy-vanisri137s-projects.vercel.app',
+  'http://localhost:3000'
+];
 // ── Security Middleware ─────────────────────────────────────────────
 app.use(
   helmet({
